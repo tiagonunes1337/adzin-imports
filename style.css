@@ -1,0 +1,476 @@
+/* --- Estilos Gerais --- */
+
+/* FIX: scroll-behavior smooth garante que as âncoras rolam suavemente no mobile e desktop */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #000;
+    overflow-x: hidden;
+    /* FIX: font-family definida no body para consistência geral */
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.custom-nav {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px); /* FIX: prefixo Safari/iOS */
+    border-bottom: 1px solid #111;
+    padding: 15px 0;
+}
+
+.brand-insta {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: #ffffff !important;
+    letter-spacing: -0.5px;
+    text-transform: uppercase;
+    text-decoration: none; /* FIX: remove sublinhado no link */
+    line-height: 1;
+    /* FIX: tamanho responsivo para não quebrar em telas pequenas */
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+}
+
+
+/* =====================
+   HERO SECTION
+===================== */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    /* FIX: min-height garante que em celulares pequenos a seção não fique cortada */
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url("img/categoria.jpg") center/cover no-repeat;
+    /* FIX: background-attachment fixed NÃO funciona bem no iOS — usar scroll */
+    background-attachment: scroll;
+    color: #ffffff;
+    text-align: center;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.9) 100%);
+    z-index: 0;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    padding: 20px;
+    /* FIX: padding top para não ficar atrás da navbar fixa */
+    padding-top: 80px;
+}
+
+.titulo {
+    font-size: clamp(1.8rem, 6vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+.descricao {
+    font-size: 1rem;
+    color: #d1d1d1;
+    line-height: 1.5;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Botões Hero */
+.btn-hero {
+    transition: all 0.3s ease-in-out;
+    /* FIX: margin horizontal no mobile para os botões não grudarem */
+    margin: 8px 4px 0;
+}
+
+.btn-hero:hover {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-color: #000000 !important;
+}
+
+
+/* =====================
+   CARROSSEL PREMIUM
+===================== */
+.slide-img {
+    height: 65vh;
+    min-height: 300px; /* FIX: evita colapso em celulares muito pequenos */
+    object-fit: cover;
+    filter: brightness(0.55);
+}
+
+.custom-indicators {
+    margin-bottom: 2rem;
+}
+
+.custom-indicators button {
+    width: 35px !important;
+    height: 4px !important;
+    background-color: #ffffff !important;
+    opacity: 0.4;
+    border: none !important;
+    border-radius: 4px;
+    margin: 0 6px !important;
+    transition: all 0.4s ease-in-out;
+}
+
+.custom-indicators button.active {
+    background-color: #ffbb00 !important;
+    opacity: 1;
+    width: 60px !important;
+}
+
+.custom-caption {
+    bottom: 25%;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    animation: fadeInUp 0.8s ease-out;
+    /* FIX: padding lateral para não encostar nas bordas no mobile */
+    padding: 0 16px;
+}
+
+.custom-caption h2 {
+    font-size: clamp(1.4rem, 5vw, 3.5rem);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.custom-caption p {
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+    color: #e0e0e0;
+    letter-spacing: 2px;
+}
+
+.custom-control {
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.custom-control:hover {
+    opacity: 1;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================
+   LOCALIZAÇÃO
+===================== */
+.localizacao-section {
+    background-color: #0f0f0f;
+    border-top: 1px solid #222;
+}
+
+.endereco-texto {
+    color: #cccccc;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.5px;
+    /* FIX: flex-wrap para não quebrar layout em telas estreitas */
+    flex-wrap: wrap;
+    gap: 4px;
+    text-align: center;
+}
+
+.mapa-container {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+    border: 1px solid #333;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.mapa-container iframe {
+    display: block;
+    width: 100%;
+    /* FIX: height explícita no iframe para renderizar no iOS */
+    height: 450px;
+}
+
+
+/* =====================
+   BOTÕES DE REDES SOCIAIS
+   FIX: extraídos do HTML inline para CSS — mais fácil de manter e corrige
+   problemas de tap no mobile (áreas de toque maiores, sem inline JS de hover)
+===================== */
+.btn-social {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 28px; /* FIX: padding maior = área de toque melhor no mobile (mínimo 44px altura) */
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 0;
+    transition: opacity 0.3s, transform 0.2s;
+    /* FIX: cursor pointer explícito */
+    cursor: pointer;
+}
+
+.btn-social i {
+    font-size: 1.2rem;
+}
+
+/* FIX: hover no CSS, não inline — funciona melhor e não quebra no touch */
+.btn-social:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.btn-instagram {
+    background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+.btn-whatsapp {
+    background: #25d366;
+}
+
+.btn-inicio {
+    background: #ffffff;
+    color: #000000 !important;
+}
+
+.btn-inicio:hover {
+    color: #000000 !important;
+}
+
+
+/* =====================
+   RESPONSIVIDADE MOBILE
+===================== */
+@media (max-width: 768px) {
+
+    /* Hero */
+    .hero-section {
+        min-height: 100svh; /* FIX: svh (small viewport height) corrige o bug da barra do browser no iOS/Android */
+    }
+
+    .hero-content {
+        padding: 80px 20px 30px;
+    }
+
+    .titulo {
+        letter-spacing: 0;
+        margin-bottom: 1rem;
+        font-size: clamp(1.6rem, 7vw, 2.5rem);
+    }
+
+    .descricao {
+        font-size: 0.9rem;
+        padding: 0 10px;
+    }
+
+    /* Carrossel */
+    .slide-img {
+        height: 50vh;
+    }
+
+    .custom-caption {
+        bottom: 12%;
+    }
+
+    /* Mapa */
+    .endereco-texto {
+        font-size: 0.95rem;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .mapa-container iframe {
+        height: 300px; /* FIX: altura menor no mobile para não ocupar a tela toda */
+    }
+
+    /* Botões sociais em coluna no mobile */
+    #redes-sociais .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-social {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 400px) {
+    .brand-insta {
+        font-size: 1.3rem;
+    }
+
+    .titulo {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* =============================================
+   BOTÃO FLUTUANTE WHATSAPP
+   Cole no final do seu style.css
+============================================= */
+
+/* Botão fixo no canto inferior direito */
+.wa-flutuante {
+    position: fixed;           /* Fica parado na tela mesmo ao rolar */
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;             /* Sempre acima de tudo */
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    background-color: #25d366; /* Verde oficial do WhatsApp */
+    color: #ffffff;
+    text-decoration: none;
+
+    padding: 12px 20px 12px 12px;
+    border-radius: 50px;       /* Pílula arredondada */
+
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    /* Sombra verde para destacar na página escura */
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+
+    /* Animação de entrada (sobe do rodapé) */
+    animation: wa-entra 0.5s ease-out 1s both, wa-pulsa 3s ease-in-out 2s infinite;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover: leve crescimento + sombra mais forte */
+.wa-flutuante:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.55);
+    color: #ffffff;
+}
+
+/* Active: aperta o botão visualmente */
+.wa-flutuante:active {
+    transform: scale(0.97);
+}
+
+/* Círculo interno do ícone */
+.wa-flutuante__icone {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;           /* Impede encolher em telas pequenas */
+    background-color: #128c4a; /* Verde mais escuro para contraste */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Texto principal + subtexto */
+.wa-flutuante__texto {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.wa-flutuante__texto small {
+    font-size: 0.7rem;
+    font-weight: 400;
+    opacity: 0.85;
+    text-transform: none;
+    letter-spacing: 0;
+}
+
+/* --- Animações --- */
+
+/* Entrada: sobe da parte de baixo */
+@keyframes wa-entra {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulsação suave de atenção (sombra) */
+@keyframes wa-pulsa {
+    0%, 100% {
+        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    }
+    50% {
+        box-shadow: 0 4px 32px rgba(37, 211, 102, 0.7);
+    }
+}
+
+
+/* --- Responsividade Mobile --- */
+@media (max-width: 768px) {
+    .wa-flutuante {
+        /* No mobile esconde o texto e vira só ícone redondo */
+        padding: 14px;
+        border-radius: 50%;
+        bottom: 20px;
+        right: 16px;
+        gap: 0;
+    }
+
+    .wa-flutuante__texto {
+        display: none; /* Esconde o texto no mobile */
+    }
+
+    .wa-flutuante__icone {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        background-color: transparent; /* No modo redondo o fundo verde já é o botão */
+    }
+
+    .wa-flutuante__icone svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+/* =============================================
+   Fim do botão WhatsApp
+============================================= */
+
+
