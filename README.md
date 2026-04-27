@@ -88,7 +88,7 @@ Brasília — DF, Brasil
 ## 🔗 Redes Sociais
 
 - **Instagram:** [@adzin_imports](https://www.instagram.com/adzin_imports/)
-- **WhatsApp:** [Grupo de Novidades](https://chat.whatsapp.com/K85T9eGIezf8MexXfwLcvb)
+- **WhatsApp:** [Grupo de Novidades](https://chat.whatsapp.com/EaLRkC482NACoDQsj18sL2)
 
 ---
 
