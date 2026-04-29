@@ -68,6 +68,14 @@ adzin-imports/
 
 ---
 
+## 🔧 Correções Realizadas (v1.2)
+
+### HTML
+- **Alteração de nome "Ver catálogo" para "Ver slide"
+- **Botão novo no top de "Ver Localização"
+
+---
+
 ## 📱 Compatibilidade
 
 - ✅ Chrome (Android / Desktop)
