@@ -76,6 +76,13 @@ adzin-imports/
 
 ---
 
+## 🔧 Correções Realizadas (v1.3)
+
+### HTML
+- **Bug do carrossel:** O `id` do elemento carousel estava definido como `id="slide"`, mas todos os controles (indicadores e botões de navegação) referenciavam `data-bs-target="#catalogo"`. Por causa desse conflito de IDs, o Bootstrap não conseguia encontrar o carousel e os slides não avançavam. Corrigido alterando o `id` do carousel de `"slide"` para `"catalogo"`, alinhando com todos os `data-bs-target` já existentes.
+
+---
+
 ## 📱 Compatibilidade
 
 - ✅ Chrome (Android / Desktop)
